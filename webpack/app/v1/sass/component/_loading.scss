@@ -1,0 +1,25 @@
+$class-name:loading;
+.#{$class-name} {
+    @extend .w-100p;
+    @extend .h-100p;
+    @extend .position-fixed;
+    @extend .display-none;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 100;
+    &__img {
+        $size: 200;
+        @extend .w-#{$size};
+        @extend .h-#{$size};
+        @extend .p-10;
+        @extend .margin-auto;
+        @extend .border-radius-#{$size / 2};
+        @extend .position-relative;
+        background-color: rgba(255, 255, 255, .5);
+        background-image: url(../img/loading.gif);
+        background-size: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        top: calc(50% - #{$size / 2}px);
+        box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    }
+}

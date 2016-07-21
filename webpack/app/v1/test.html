@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>一起去旅行!Go Travel~</title>
+    <meta charset="UTF-8" />
+    <meta content="
+width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+    <link href="./css/common.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="wrapper">
+		<div class="loading">
+			<div class="loading__img"></div>
+		</div>
+
+		<div class="parallax">
+			<div class="parallax__layer parallax__layer--1 layer" data-depth="0.10"></div>
+			<div class="parallax__layer parallax__layer--2 layer" data-depth="0.30"></div>
+			<div class="parallax__layer parallax__layer--3 layer" data-depth="0.50"></div>
+		</div>
+
+        <header>
+            <h1><span class="color-yellow">Go</span> Travel !</h1>
+        </header>
+        <div class="main">
+            <div class="form">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>出發地點</label>
+                            <select class="form-control">
+                                <option>台北</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label>旅遊地區</label>
+                            <select class="form-control">
+                                <option>日本</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 clear">
+                        <div class="form-group w-45p float-left">
+                            <label>出發日期</label>
+                            <input type="text" class="form-control" id="from" placeholder="開始日期" readonly />
+                        </div>
+                        <div class="w-10p float-left text-align-center line-height-70 color-white">-</div>
+                        <div class="form-group w-45p float-left">
+                            <label>&nbsp;</label>
+                            <input type="text" class="form-control" id="to" placeholder="結束日期" readonly />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                        	<button class="btn btn-lg btn-primary btn-block">點擊我，開始搜尋~</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>© 2016 Leo Lee. All Rights Reserved.</footer>
+    </div>
+    <script src="./js/common.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>

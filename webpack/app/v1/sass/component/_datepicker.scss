@@ -1,0 +1,13 @@
+.ui-datepicker {
+    @extend .p-8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    * {
+        font-size: 14px !important;
+    }
+}
+
+.date-range-selected > .ui-state-active,
+.date-range-selected > .ui-state-default {
+    background: none;
+    background-color: lightsteelblue;
+}

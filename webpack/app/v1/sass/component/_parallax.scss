@@ -1,0 +1,35 @@
+$class-name:parallax;
+.#{$class-name} {
+    @extend .w-100p;
+    @extend .h-100p;
+    position: fixed !important;
+    z-index: -1;
+    &__layer {
+        background-size: 100%;
+        background-position: center;
+        opacity: .7;
+        &--1 {
+            @extend .w-150p;
+            @extend .h-150p;
+            background-image: url(../img/bg.jpg);
+            background-size: auto 100%;
+            left: -25% !important;
+            top: -25% !important;
+            opacity: 1;
+        }
+        &--2 {
+            @extend .w-370;
+            @extend .h-230;
+            background-image: url(../img/cloud.png);
+            left: 70% !important;
+            top: 50% !important;
+        }
+        &--3 {
+            @extend .w-740;
+            @extend .h-450;
+            background-image: url(../img/cloud.png);
+            left: -30% !important;
+            top: 10% !important;
+        }
+    }
+}

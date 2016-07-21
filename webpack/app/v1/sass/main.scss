@@ -1,0 +1,111 @@
+// FIXME: oocss about font-color
+// config
+@import "config/normalize";
+@import "config/variable";
+// helper
+@import "helper/mixin";
+@import "helper/OOCSS";
+// layout
+@import "layout/base";
+@import "layout/rwd";
+// component
+@import "component/datepicker";
+@import "component/loading";
+@import "component/modal";
+@import "component/parallax";
+//
+@font-face {
+    font-family: myFirstFont;
+    src: url(../font/jle.ttf);
+}
+
+//
+body {
+    // background-image: url(../img/bg.jpg);
+    background-size: auto 150%;
+    background-position: center;
+}
+
+.wrapper {
+    @extend .w-100p;
+    @extend .h-100p;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    * {
+        box-sizing: border-box;
+    }
+}
+
+header {
+    h1 {
+        @extend .w-100p;
+        @extend .m-0;
+        // @extend .color-white;
+        padding: 50px 0 20px 0;
+        text-align: center;
+        font-family: myFirstFont;
+        font-size: 100px;
+        color: $white;
+        text-shadow: 0 0 10px rgba(0, 0, 0, .3);
+        opacity: .9;
+        span {
+            color: $yellow;
+        }
+    }
+}
+
+.main {
+    padding: 20px;
+}
+
+.form {
+    @extend .p-30;
+    @extend .border-radius-5;
+    // background-color: rgba(0, 0, 0, .5);
+    max-width: 800px;
+    margin: 20px auto;
+    border: 3px dashed rgba(255, 255, 255, .8);
+    .row {
+        padding: 8px 0;
+    }
+    label {
+        // @extend .color-white;
+        @extend .position-relative;
+        @extend .p-l-15;
+        color: $white;
+        &::before {
+            @extend .position-absolute;
+            @extend .font-size-20;
+            @extend .color-red;
+            content: "*";
+            left: 0;
+        }
+        &.none::before {
+            opacity: 0;
+        }
+    }
+    .form-control {
+        @extend .h-40;
+    }
+}
+
+.list {
+    @extend .border-radius-5;
+    @extend .clear;
+    background-color: $white;
+    max-width: 800px;
+    margin: 40px auto 20px auto;
+    overflow: hidden;
+    th {
+        white-space: nowrap;
+        span::after {
+            @extend .m-l-5;
+            @extend .float-none;
+        }
+    }
+}
+
+footer {
+    @extend .p-10;
+    text-align: center;
+}
