@@ -8,7 +8,7 @@ class Test {
         this.index = this.index.bind(this);
     }
     index(req, res, next) {
-        let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+        let ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
         let date = new Date();
         date = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes();
         console.log();
@@ -22,7 +22,7 @@ class Test {
         let q = req.query;
         let query = [q.date[0], q.date[1], q.city, q.area];
         // let query = ["2016-07-31", "2016-07-31", "台北", "北海道"];
-        let url, sdate, edate, city, area;
+        let url, sdate, edate, city, area, area1;
         let data = [];
         let tmp = [];
 
@@ -48,13 +48,21 @@ class Test {
                         break;
                     case "3":
                         area = company.area[query[k]];
+                        if (company.name == "lion" && company.area[query[k]].match(/c\d+/i)) {
+                            area = area.slice(1);
+                            area1 = company.area[query[k]];
+                        }
                         url = url.replace(/\{area\}/g, area);
                         break;
                     default:
                 }
             }
             if (company.name == "lion") {
-                url = url.replace(/\{area1\}/, area[0]);
+                if (area1) {
+                    url = url.replace(/\{area1\}/, area1[0]);
+                } else {
+                    url = url.replace(/\{area1\}/, area[0]);
+                }
             }
 
             let k = key;
@@ -126,15 +134,17 @@ class Test {
                     let d = new Date();
                     let id = i + "-" + d.getTime();
 
-                    data.push({
-                        id: id,
-                        company: "雄獅",
-                        date: this.convertDate($(e).find(".time").text()),
-                        name: $(e).find(".productnName").text(),
-                        day: $(e).find(".day").text(),
-                        price: $(e).find(".price").text().replace(/[^0-9]/g, ""),
-                        link: "http://www.liontravel.com/webpd/" + $(e).find(".productnName a").attr("href")
-                    });
+                    if ($(e).find(".action.last").text() != "關團") {
+                        data.push({
+                            id: id,
+                            company: "雄獅",
+                            date: this.convertDate($(e).find(".time").text()),
+                            name: $(e).find(".productnName").text(),
+                            day: $(e).find(".day").text(),
+                            price: $(e).find(".price").text().replace(/[^0-9]/g, ""),
+                            link: "http://www.liontravel.com/webpd/" + $(e).find(".productnName a").attr("href")
+                        });
+                    }
                 });
                 break;
             case "star":
@@ -143,15 +153,17 @@ class Test {
                         let d = new Date();
                         let id = i + "-" + d.getTime();
 
-                        data.push({
-                            id: id,
-                            company: "燦星",
-                            date: this.convertDate($(e).find("td").eq(0).text()),
-                            name: $(e).find("td").eq(1).text(),
-                            day: $(e).find("td").eq(3).text().replace(/[^0-9]/g, ""),
-                            price: $(e).find("td").eq(4).text().replace(/[^0-9]/g, ""),
-                            link: $(e).find("a").attr("href").replace(/javascript\:opensamwindows\(\'/, "").replace(/\'\)/, "")
-                        });
+                        if (!$(e).find("td:last-child img").attr("src").match(/icon\_2\.gif/)) {
+                            data.push({
+                                id: id,
+                                company: "燦星",
+                                date: this.convertDate($(e).find("td").eq(0).text()),
+                                name: $(e).find("td").eq(1).text(),
+                                day: $(e).find("td").eq(3).text().replace(/[^0-9]/g, ""),
+                                price: $(e).find("td").eq(4).text().replace(/[^0-9]/g, ""),
+                                link: $(e).find("a").attr("href").replace(/javascript\:opensamwindows\(\'/, "").replace(/\'\)/, "")
+                            });
+                        }
                     }
                 });
                 break;

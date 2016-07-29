@@ -90,6 +90,7 @@
 @include custom-style(color, $color, 1);
 @include custom-style(font-weight, $font-weight);
 //
+@include custom-style(background-color, $color, 1);
 @include custom-style(display, $display);
 @include custom-style(float, $float);
 @include custom-style(position, $position);

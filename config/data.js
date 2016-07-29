@@ -14,7 +14,10 @@ export default {
             "東京": "A1",
             "關西": "A2",
             "九州": "A5",
-            "沖繩": "A4",
+            "沖繩": "AA",
+            "首爾": "C93",
+            "斧山": "C94",
+            "濟州島": "C95"
         }
     }, {
         name: "star",
@@ -32,6 +35,9 @@ export default {
             "關西": "JP05",
             "九州": "JP07",
             "沖繩": "JP08",
+            "首爾": "KR01",
+            "斧山": "KR02",
+            "濟州島": "KR03"
         }
     }, {
         name: "coke",
@@ -49,11 +55,14 @@ export default {
             "關西": "A-03",
             "九州": "A-06",
             "沖繩": "A-07",
+            "首爾": "B-01",
+            "斧山": "B-02",
+            "濟州島": "B-03"
         }
     }, {
         name: "eztravel",
         cname: "ezTravel",
-        url: "http://vacation.eztravel.com.tw/pkgfrn/results/{city}/{area}?depDateFrom={start_date}&depDateTo={end_date}",
+        url: "http://vacation.eztravel.com.tw/pkgfrn/results/{city}/{area}?avbl=1&depDateFrom={start_date}&depDateTo={end_date}",
         city: {
             "台北": "TPE",
             "台中": "TXG",
@@ -66,11 +75,14 @@ export default {
             "關西": "94",
             "九州": "41",
             "沖繩": "80",
+            "首爾": "98",
+            "斧山": "342",
+            "濟州島": "343"
         }
     }],
     city: ["台北", "台中", "高雄"],
     area: {
         "日本": ["北海道", "東北", "東京", "關西", "九州", "沖繩"],
-        // "韓國": []
+        "韓國": ["首爾", "斧山", "濟州島"],
     }
 };
